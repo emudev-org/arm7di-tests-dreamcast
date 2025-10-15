@@ -1,0 +1,18 @@
+@ MRS
+
+.equ BAD_Rd,	0x10
+.equ BAD_Rn,	0x20
+.equ VARBASE,	0x80000
+	mov 	r1,#0
+	mov 	r0,#0xC0000000
+	adds 	r0,r0,r0		@ Z=0, C=1, V=0, N=1
+	mov 	r2,#0x50000000
+	mrs 	r2,cpsr
+	tsts 	r2,#0x20000000
+	orreq 	r1,r1,#1
+	tsts 	r2,#0x80000000
+	orreq 	r1,r1,#2
+	tsts 	r2,#0x10000000
+	orrne 	r1,r1,#4
+	tsts 	r2,#0x40000000
+	orrne 	r1,r1,#8
