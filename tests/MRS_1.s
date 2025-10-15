@@ -20,6 +20,8 @@ start:
 	tsts 	r2,#0x40000000
 	orrne 	r1,r1,#8
 
+.word 0xDEADBEEF
+
 .align 3
 var64:		.word 0x11223344,0x55667788
 

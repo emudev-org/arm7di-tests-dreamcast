@@ -18,6 +18,8 @@ start:
 	cmp 	r4,r2
 	orrne 	r1,r1,#BAD_Rd
 
+.word 0xDEADBEEF
+
 .align 3
 var64:		.word 0x11223344,0x55667788
 

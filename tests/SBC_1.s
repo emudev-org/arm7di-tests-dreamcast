@@ -19,6 +19,8 @@ start:
 	orrcs 	r1,r1,#1
 	orrpl 	r1,r1,#2
 
+.word 0xDEADBEEF
+
 .align 3
 var64:		.word 0x11223344,0x55667788
 
