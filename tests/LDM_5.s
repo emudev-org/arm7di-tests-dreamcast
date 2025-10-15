@@ -4,20 +4,6 @@
 .equ BAD_Rn,	0x20
 .equ VARBASE,	0x80000
 
-.align 3
-var64:		.word 0x11223344,0x55667788
-
-rdVal:		.word 0
-rnVal:		.word 0
-memVal:		.word 0
-
-.align 2
-exceptionFlag: .word 0
-
-romvar:  	.byte 0x80,0,0,0
-romvar2: 	.byte 0x00,0x8f,0,0xff
-romvar3: 	.byte 0x80,0x7f,0,0
-
 .global start
 start:
 	mov	r0, #0xd2	@ Switch to IRQ mode (XXX: keep irqs disabled)
@@ -41,3 +27,18 @@ start:
 	mov	r0, #0xd3	@ Switch to supervisor mode (XXX was system mode)
 	msr	cpsr, r0
 	orr 	r1,r1,#0x40000000
+
+.align 3
+var64:		.word 0x11223344,0x55667788
+
+rdVal:		.word 0
+rnVal:		.word 0
+memVal:		.word 0
+
+.align 2
+exceptionFlag: .word 0
+
+romvar:  	.byte 0x80,0,0,0
+romvar2: 	.byte 0x00,0x8f,0,0xff
+romvar3: 	.byte 0x80,0x7f,0,0
+

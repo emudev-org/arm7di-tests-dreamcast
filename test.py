@@ -43,6 +43,9 @@ for i, section in enumerate(sections):
 .equ BAD_Rn,	0x20
 .equ VARBASE,	0x80000
 
+.global start
+start:
+""" + section + f"""
 .align 3
 var64:		.word 0x11223344,0x55667788
 
@@ -57,9 +60,7 @@ romvar:  	.byte 0x80,0,0,0
 romvar2: 	.byte 0x00,0x8f,0,0xff
 romvar3: 	.byte 0x80,0x7f,0,0
 
-.global start
-start:
-""" + section
+"""
     
     testnums.setdefault(value, 0)
     testnums[value] += 1
